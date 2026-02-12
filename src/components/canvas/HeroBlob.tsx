@@ -28,10 +28,10 @@ export default function HeroBlob(props: any) {
             mesh.current.rotation.x += delta * 0.1
             mesh.current.rotation.y += delta * 0.15
 
-            // Move left on scroll
+            // Move left on scroll AND UP
             // We push it out of view or to the side
             const pX = (x * 0.2) - (viewport.width * 0.25 * r1)
-            const pY = (y * 0.2) + 0.5 // Shift up by 0.5
+            const pY = (y * 0.2) + 0.5 + (r1 * 10) // Move WAY up on scroll
 
             if (!isNaN(pX) && !isNaN(pY)) {
                 mesh.current.position.x = THREE.MathUtils.lerp(mesh.current.position.x, pX, 0.1)
@@ -46,22 +46,26 @@ export default function HeroBlob(props: any) {
 
             // Safe interpolation
             const currentY = wireMesh.current.position.y
-            const targetY = y * 0.15
+            const targetY = (y * 0.15) + (r1 * 10) // Match upward movement
 
             if (!isNaN(targetY)) {
                 wireMesh.current.position.y = THREE.MathUtils.lerp(currentY, targetY, 0.1)
             }
         }
 
-        // Animate Material
         if (materialRef.current) {
             damp(materialRef.current, 'distort', hovered ? 0.6 : 0.3, 0.25, delta)
             damp(materialRef.current, 'speed', hovered ? 4 : 2, 0.25, delta)
+            // Fade out
+            damp(materialRef.current, 'opacity', 1 - r1, 0.25, delta)
         }
     })
 
+    const isMobile = viewport.width < 5
+    const scale = isMobile ? 1.5 : 2 // Adjusted scale for mobile vs desktop logic (relative to args)
+
     return (
-        <group {...props}>
+        <group {...props} scale={isMobile ? 0.6 : 1}>
             {/* Inner Distorted Core */}
             <Sphere args={[1, 64, 64]} ref={mesh}
                 onPointerOver={() => setHovered(true)}
@@ -76,6 +80,7 @@ export default function HeroBlob(props: any) {
                     speed={2}
                     roughness={0.2}
                     metalness={0.9}
+                    transparent
                 />
             </Sphere>
 

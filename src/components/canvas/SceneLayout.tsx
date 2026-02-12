@@ -27,7 +27,7 @@ export default function SceneLayout() {
         // 0.8 - 1.0: Contact
 
         const offset = scroll.offset
-        const defaultZ = size.width < 768 ? 10 : 8
+        const defaultZ = size.width < 768 ? 14 : 8
 
         let targetX = 0
         let targetZ = defaultZ
@@ -59,8 +59,9 @@ export default function SceneLayout() {
             // Map 0.8-1 to 0-1
             const p = (offset - 0.8) * 5
             targetX = 0
-            // Move down to -6 where the ball is
-            targetY = THREE.MathUtils.lerp(-3.5, -6, p)
+            // Move down to -6 (desktop) or -12 (mobile) to clear the gallery
+            const footerY = size.width < 768 ? -12 : -6
+            targetY = THREE.MathUtils.lerp(-3.5, footerY, p)
             // Zoom in?
             targetZ = THREE.MathUtils.lerp(defaultZ, defaultZ - 2, p)
         }

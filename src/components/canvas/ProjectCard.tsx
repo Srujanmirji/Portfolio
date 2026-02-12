@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 import { easing } from 'maath'
 import * as THREE from 'three'
 
-export default function ProjectCard({ project, ...props }: any) {
+export default function ProjectCard({ project, scale = 1, ...props }: any) {
     const ref = useRef<THREE.Group>(null!)
     const [hovered, setHover] = useState(false)
 
@@ -14,7 +14,7 @@ export default function ProjectCard({ project, ...props }: any) {
 
     useFrame((state, delta) => {
         // Smooth scaling on hover
-        easing.damp3(ref.current.scale, hovered ? 1.15 : 1, 0.1, delta)
+        easing.damp3(ref.current.scale, hovered ? scale * 1.15 : scale, 0.1, delta)
 
         // Slight rotation on hover
         easing.dampE(

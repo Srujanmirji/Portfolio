@@ -32,7 +32,7 @@ export default function HeroOverlay() {
                 <p className="text-sm font-light tracking-[0.3em] text-zinc-500">PORTFOLIO</p>
             </div>
 
-            <h1 className="text-8xl md:text-9xl font-bold tracking-tighter text-white overflow-hidden perspective-text relative z-10 drop-shadow-2xl">
+            <h1 className="text-5xl md:text-9xl font-bold tracking-tighter text-white overflow-hidden perspective-text relative z-10 drop-shadow-2xl">
                 {"SRUJAN MIRJI".split('').map((char, i) => (
                     <span key={i} className="hero-char inline-block" style={{ minWidth: char === ' ' ? '0.3em' : '0' }}>
                         {char}
