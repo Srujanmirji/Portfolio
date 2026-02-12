@@ -11,6 +11,7 @@ const Effects = dynamic(() => import('@/components/canvas/Effects'), { ssr: fals
 const SceneLayout = dynamic(() => import('@/components/canvas/SceneLayout'), { ssr: false })
 const ProjectGallery = dynamic(() => import('@/components/canvas/ProjectGallery'), { ssr: false })
 const ContactBall = dynamic(() => import('@/components/canvas/ContactBall'), { ssr: false })
+const AboutSubject = dynamic(() => import('@/components/canvas/AboutSubject'), { ssr: false })
 import ContactSection from '@/components/dom/ContactSection'
 import { ScrollControls, Scroll } from '@react-three/drei'
 
@@ -28,6 +29,7 @@ export default function Home() {
             <pointLight position={[-10, -10, -10]} color="#f00" intensity={2} />
             <pointLight position={[0, 10, 0]} color="#0f0" intensity={1} />
             <HeroObject position={[0, 0, 0]} />
+            <AboutSubject />
             <Particles />
             <ProjectGallery />
 

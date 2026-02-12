@@ -3,9 +3,11 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { useScroll } from '@react-three/drei'
 
 export default function HeroOverlay() {
     const container = useRef<HTMLDivElement>(null!)
+    const scroll = useScroll()
 
     useGSAP(() => {
         const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -44,7 +46,14 @@ export default function HeroOverlay() {
                 Creative Developer | 3D & Web Experiences
             </p>
 
-            <button className="hero-btn mt-12 px-8 py-3 rounded-full bg-white text-black font-bold tracking-wider hover:bg-zinc-200 transition-colors pointer-events-auto cursor-pointer">
+            <button
+                onClick={() => {
+                    const height = window.innerHeight
+                    // Use dreis scroll container
+                    scroll.el.scrollTo({ top: height, behavior: 'smooth' })
+                }}
+                className="hero-btn mt-12 px-8 py-3 rounded-full border border-white/30 bg-white/10 backdrop-blur-sm text-white font-bold tracking-wider hover:bg-white/20 hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 pointer-events-auto cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+            >
                 EXPLORE WORK
             </button>
         </div>
