@@ -2,7 +2,7 @@
 
 export default function ContactSection() {
     return (
-        <div className="w-full h-screen flex flex-col items-center justify-center text-center z-10 pointer-events-auto">
+        <div className="w-full h-screen flex flex-col items-center justify-end pb-48 text-center z-10 pointer-events-auto">
             <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white tracking-widest">
                 GET IN TOUCH
             </h2>

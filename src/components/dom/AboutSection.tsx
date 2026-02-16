@@ -33,13 +33,13 @@ export default function AboutSection() {
             </h2>
             <div className="about-desc text-xl md:text-2xl text-zinc-400 max-w-xl leading-relaxed mb-12">
                 <p className="mb-4">
-                    I am a <span className="text-cyan-400 font-bold">frontend developer</span> focused on building modern, high performance web experiences.
+                    I am a <span className="text-cyan-400 font-bold">Creative Frontend Developer</span> specializing in building immersive, high-performance web applications.
                 </p>
                 <p className="mb-4">
-                    I work with animation, 3D, and interactive systems to create products that feel precise, fast, and intentional.
+                    Leveraging <span className="text-white">WebGL</span> and <span className="text-white">Three.js</span>, I craft interactive digital experiences that feel precise, fast, and intentional.
                 </p>
                 <p>
-                    Currently, I'm expanding my skills in <span className="text-cyan-400 font-bold">Java Full Stack</span> and <span className="text-cyan-400 font-bold">DSA</span>.
+                    Currently, I'm expanding my engineering depth in <span className="text-cyan-400 font-bold">Java Full Stack</span> development and <span className="text-cyan-400 font-bold">Algorithms (DSA)</span>.
                 </p>
             </div>
 

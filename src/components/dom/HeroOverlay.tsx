@@ -43,7 +43,7 @@ export default function HeroOverlay() {
             </h1>
 
             <p className="hero-sub mt-4 text-xl md:text-2xl text-cyan-50 max-w-lg mx-auto font-light tracking-wide drop-shadow-lg drop-shadow-cyan-500/50">
-                Creative Developer | 3D & Web Experiences
+                Creative Frontend Developer | 3D & Interactive Web Experiences
             </p>
 
             <button

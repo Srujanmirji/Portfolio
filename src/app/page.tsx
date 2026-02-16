@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import HeroOverlay from '@/components/dom/HeroOverlay'
 import AboutSection from '@/components/dom/AboutSection'
+import ProjectListHTML from '@/components/dom/ProjectListHTML'
 
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: false })
 const HeroObject = dynamic(() => import('@/components/canvas/HeroBlob'), { ssr: false })
@@ -13,7 +14,7 @@ const ProjectGallery = dynamic(() => import('@/components/canvas/ProjectGallery'
 const ContactBall = dynamic(() => import('@/components/canvas/ContactBall'), { ssr: false })
 const AboutSubject = dynamic(() => import('@/components/canvas/AboutSubject'), { ssr: false })
 import ContactSection from '@/components/dom/ContactSection'
-import { ScrollControls, Scroll } from '@react-three/drei'
+import { ScrollControls, Scroll, Loader } from '@react-three/drei'
 
 export default function Home() {
   return (
@@ -39,7 +40,9 @@ export default function Home() {
               <AboutSection />
 
               {/* Spacer for 3D Gallery Section (Pages 2-4 approx) */}
-              <div className="w-full h-[200vh]" />
+              <div className="w-full h-[200vh]">
+                <ProjectListHTML />
+              </div>
 
               <ContactSection />
             </Scroll>
@@ -47,6 +50,7 @@ export default function Home() {
           </ScrollControls>
           <Effects />
         </Scene>
+        <Loader />
       </div>
     </main>
   )
